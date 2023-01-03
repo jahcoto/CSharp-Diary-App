@@ -95,5 +95,14 @@
   <ItemGroup>
     <None Include="Resources\search_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computer_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
