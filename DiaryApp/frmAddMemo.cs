@@ -22,6 +22,10 @@ namespace DiaryApp
             
         }
 
-        
+        private void frmAddMemo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DiaryApp.Properties.Settings.Default.formOpened = null;
+            DiaryApp.Properties.Settings.Default.Save();
+        }
     }
 }

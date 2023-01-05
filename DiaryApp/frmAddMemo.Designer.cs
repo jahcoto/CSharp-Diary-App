@@ -36,38 +36,43 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 15);
+            this.label1.Location = new System.Drawing.Point(245, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.Size = new System.Drawing.Size(74, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Memo Text";
             // 
             // txtMemoText
             // 
-            this.txtMemoText.Location = new System.Drawing.Point(268, 12);
+            this.txtMemoText.Location = new System.Drawing.Point(357, 15);
+            this.txtMemoText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMemoText.Name = "txtMemoText";
-            this.txtMemoText.Size = new System.Drawing.Size(100, 20);
+            this.txtMemoText.Size = new System.Drawing.Size(132, 22);
             this.txtMemoText.TabIndex = 1;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(224, 51);
+            this.btnSave.Location = new System.Drawing.Point(299, 63);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(100, 28);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
             // frmAddMemo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 117);
+            this.ClientSize = new System.Drawing.Size(756, 144);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtMemoText);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAddMemo";
-            this.Text = "frmAddMemo";            
+            this.Text = "frmAddMemo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddMemo_FormClosed);
             this.Load += new System.EventHandler(this.frmAddMemo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

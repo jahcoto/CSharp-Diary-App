@@ -111,13 +111,25 @@ namespace DiaryApp
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            int len = Application.OpenForms.Count;
-            foreach (Form frm in Application.OpenForms)
+        {           
+            foreach (Form frm in MdiChildren)
             {
                 DiaryApp.Properties.Settings.Default.formOpened = frm.Name;
-                DiaryApp.Properties.Settings.Default.Save();
-                MessageBox.Show(frm.Name);
+                foreach (Control ctrl in frm.Controls) 
+                {
+                    if (ctrl.GetType().Name == "TextBox") 
+                    {
+                        TextBox text = (TextBox)ctrl;
+                        if (text.Text != "") 
+                        {
+                            MessageBox.Show(text.Text);
+                        }
+                    }
+                    
+                    
+                }
+
+                DiaryApp.Properties.Settings.Default.Save();                
             }
         }
     }
