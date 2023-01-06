@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DiaryApp
 {
     public partial class Form1 : Form
     {
         frmAddMemo frmAddMemo = null;
-        //string WinState = "";
+        string WinState = "";
 
         public Form1()
         {
@@ -48,23 +49,59 @@ namespace DiaryApp
         {
             getTime();
 
-            lblVersion.Text += Application.ProductVersion;
+            lblVersion.Text += System.Windows.Forms.Application.ProductVersion;
 
             backgroundImageloader(DiaryApp.Properties.Settings.Default.selectedBackgroundImage.ToString());
 
             backgroundImageCombo();
 
+            musicLoader();
+
             string formName = DiaryApp.Properties.Settings.Default.formOpened;
+            if (DiaryApp.Properties.Settings.Default.mdiChildWinState == "") 
+            {
+                WinState = "Normal";
+            }
+            else 
+            {
+                WinState = DiaryApp.Properties.Settings.Default.mdiChildWinState;
+            }            
+            FormWindowState fws = (FormWindowState)Enum.Parse(typeof(FormWindowState), WinState);
             switch (formName)
             {
                 case "frmAddMemo":
                     frmAddMemo = new frmAddMemo
                     {
-                        WindowState = FormWindowState.Normal,
+                        WindowState = fws,
                         StartPosition = FormStartPosition.CenterParent,
                         MdiParent = this,
                     };
                     frmAddMemo.Show();
+                    
+                    foreach (Control ctrl in frmAddMemo.Controls)
+                    {
+                        if (ctrl.GetType().Name == "TextBox")
+                        {
+                            TextBox text = (TextBox)ctrl;
+                            if (text.Name == "txtMemoText")
+                            {
+                                MessageBox.Show(DiaryApp.Properties.Settings.Default.txtMemoText);
+                                text.Text = DiaryApp.Properties.Settings.Default.txtMemoText;                                
+                            }
+                        }
+                        if (ctrl.GetType().Name == "DateTimePicker") 
+                        {
+                            DateTimePicker startDate = (DateTimePicker)ctrl;
+                            if (startDate.Name == "dtpStartDate") 
+                            {
+                                if (DiaryApp.Properties.Settings.Default.dtpStartDate != "") 
+                                {
+                                    MessageBox.Show(DiaryApp.Properties.Settings.Default.dtpStartDate);
+                                    startDate.Value = Convert.ToDateTime(DiaryApp.Properties.Settings.Default.dtpStartDate);
+                                }                                
+                            }
+                        }
+                    }
                     break;
             }
         }
@@ -77,11 +114,20 @@ namespace DiaryApp
             }
         }
 
+        public void musicLoader() 
+        {
+            cboMusic.Items.Clear();
+            for (int i = 1; i <= 3; i++)
+            {
+                cboMusic.Items.Add("Music " + i.ToString());
+            }
+        }
+
         public void backgroundImageloader(string imgNumber) 
         {
-            string fileName = Application.StartupPath + "\\Data\\Pics\\" + imgNumber + ".jpg";
+            string fileName = System.Windows.Forms.Application.StartupPath + "\\Data\\Pics\\" + imgNumber + ".jpg";
             //MessageBox.Show(fileName);
-            this.BackgroundImage = Image.FromFile(fileName);
+            this.BackgroundImage = System.Drawing.Image.FromFile(fileName);
             this.BackgroundImageLayout= ImageLayout.Stretch;
         }
 
@@ -115,22 +161,32 @@ namespace DiaryApp
             foreach (Form frm in MdiChildren)
             {
                 DiaryApp.Properties.Settings.Default.formOpened = frm.Name;
-                foreach (Control ctrl in frm.Controls) 
+                DiaryApp.Properties.Settings.Default.mdiChildWinState = frm.WindowState.ToString();
+                foreach (Control ctrl in frm.Controls)
                 {
-                    if (ctrl.GetType().Name == "TextBox") 
+                    if (ctrl.GetType().Name == "TextBox")
                     {
                         TextBox text = (TextBox)ctrl;
-                        if (text.Text != "") 
+                        if (text.Text != "")
                         {
+                            DiaryApp.Properties.Settings.Default.txtMemoText = text.Text;
                             MessageBox.Show(text.Text);
                         }
                     }
-                    
-                    
+                    if (ctrl.GetType().Name == "DateTimePicker")
+                    {
+                        DateTimePicker startDate = (DateTimePicker)ctrl;
+                        DiaryApp.Properties.Settings.Default.dtpStartDate = startDate.Value.ToString();
+                        MessageBox.Show(startDate.Text);
+                    }
                 }
-
                 DiaryApp.Properties.Settings.Default.Save();                
             }
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

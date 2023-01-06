@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnlSideBar = new System.Windows.Forms.Panel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lblDigitalClock = new System.Windows.Forms.Label();
             this.btnShowDesktop = new System.Windows.Forms.Button();
             this.pnlFooter = new System.Windows.Forms.Panel();
@@ -45,7 +48,11 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboMusic = new System.Windows.Forms.ComboBox();
             this.pnlSideBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             this.tsMenu.SuspendLayout();
             this.SuspendLayout();
@@ -54,23 +61,45 @@
             // 
             this.pnlSideBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlSideBar.Controls.Add(this.lblDigitalClock);
+            this.pnlSideBar.Controls.Add(this.panel1);
             this.pnlSideBar.Controls.Add(this.btnShowDesktop);
             this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSideBar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSideBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlSideBar.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSideBar.Name = "pnlSideBar";
-            this.pnlSideBar.Size = new System.Drawing.Size(199, 657);
+            this.pnlSideBar.Size = new System.Drawing.Size(150, 534);
             this.pnlSideBar.TabIndex = 1;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(148, 45);
+            this.axWindowsMediaPlayer1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.axWindowsMediaPlayer1);
+            this.panel1.Controls.Add(this.cboMusic);
+            this.panel1.Location = new System.Drawing.Point(0, 390);
+            this.panel1.Name = "panel1";
+            this.panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.panel1.Size = new System.Drawing.Size(148, 73);
+            this.panel1.TabIndex = 8;
             // 
             // lblDigitalClock
             // 
             this.lblDigitalClock.BackColor = System.Drawing.Color.Black;
             this.lblDigitalClock.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDigitalClock.ForeColor = System.Drawing.Color.White;
-            this.lblDigitalClock.Location = new System.Drawing.Point(-1, 97);
-            this.lblDigitalClock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDigitalClock.Location = new System.Drawing.Point(-1, 79);
             this.lblDigitalClock.Name = "lblDigitalClock";
-            this.lblDigitalClock.Size = new System.Drawing.Size(200, 65);
+            this.lblDigitalClock.Size = new System.Drawing.Size(150, 53);
             this.lblDigitalClock.TabIndex = 6;
             this.lblDigitalClock.Text = "12:00:00";
             this.lblDigitalClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -80,10 +109,9 @@
             this.btnShowDesktop.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnShowDesktop.Image = global::DiaryApp.Properties.Resources.computer_icon;
             this.btnShowDesktop.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnShowDesktop.Location = new System.Drawing.Point(-1, 570);
-            this.btnShowDesktop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShowDesktop.Location = new System.Drawing.Point(-1, 463);
             this.btnShowDesktop.Name = "btnShowDesktop";
-            this.btnShowDesktop.Size = new System.Drawing.Size(200, 86);
+            this.btnShowDesktop.Size = new System.Drawing.Size(150, 70);
             this.btnShowDesktop.TabIndex = 6;
             this.btnShowDesktop.Text = "Show Desktop";
             this.btnShowDesktop.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -98,10 +126,10 @@
             this.pnlFooter.Controls.Add(this.cboLoadImage);
             this.pnlFooter.Controls.Add(this.lblVersion);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(199, 532);
-            this.pnlFooter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlFooter.Location = new System.Drawing.Point(150, 464);
+            this.pnlFooter.Margin = new System.Windows.Forms.Padding(2);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(1152, 125);
+            this.pnlFooter.Size = new System.Drawing.Size(863, 70);
             this.pnlFooter.TabIndex = 2;
             // 
             // label1
@@ -109,10 +137,9 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(635, 49);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(475, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 20);
+            this.label1.Size = new System.Drawing.Size(145, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Background Image: ";
             // 
@@ -122,10 +149,9 @@
             this.cboLoadImage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoadImage.DropDownWidth = 220;
             this.cboLoadImage.FormattingEnabled = true;
-            this.cboLoadImage.Location = new System.Drawing.Point(842, 49);
-            this.cboLoadImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboLoadImage.Location = new System.Drawing.Point(631, 25);
             this.cboLoadImage.Name = "cboLoadImage";
-            this.cboLoadImage.Size = new System.Drawing.Size(288, 24);
+            this.cboLoadImage.Size = new System.Drawing.Size(217, 21);
             this.cboLoadImage.TabIndex = 1;
             this.cboLoadImage.SelectedValueChanged += new System.EventHandler(this.cboLoadImage_SelectedValueChanged);
             // 
@@ -133,10 +159,9 @@
             // 
             this.lblVersion.AutoSize = true;
             this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.Location = new System.Drawing.Point(13, 49);
-            this.lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVersion.Location = new System.Drawing.Point(10, 25);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(85, 20);
+            this.lblVersion.Size = new System.Drawing.Size(68, 16);
             this.lblVersion.TabIndex = 0;
             this.lblVersion.Text = "Version: ";
             // 
@@ -151,9 +176,9 @@
             this.toolStripButton3,
             this.toolStripButton2,
             this.toolStripButton1});
-            this.tsMenu.Location = new System.Drawing.Point(199, 0);
+            this.tsMenu.Location = new System.Drawing.Point(150, 0);
             this.tsMenu.Name = "tsMenu";
-            this.tsMenu.Size = new System.Drawing.Size(1152, 98);
+            this.tsMenu.Size = new System.Drawing.Size(863, 80);
             this.tsMenu.TabIndex = 3;
             this.tsMenu.Text = "toolStrip1";
             // 
@@ -223,10 +248,9 @@
             // 
             this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimize.Image = global::DiaryApp.Properties.Resources.minimize_icon;
-            this.btnMinimize.Location = new System.Drawing.Point(1196, 14);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMinimize.Location = new System.Drawing.Point(897, 11);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(67, 62);
+            this.btnMinimize.Size = new System.Drawing.Size(50, 50);
             this.btnMinimize.TabIndex = 5;
             this.btnMinimize.UseVisualStyleBackColor = true;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
@@ -235,19 +259,45 @@
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Image = global::DiaryApp.Properties.Resources.close_icon;
-            this.btnClose.Location = new System.Drawing.Point(1269, 14);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Location = new System.Drawing.Point(952, 11);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(67, 62);
+            this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 4;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Music";
+            // 
+            // cboMusic
+            // 
+            this.cboMusic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboMusic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMusic.DropDownWidth = 220;
+            this.cboMusic.FormattingEnabled = true;
+            this.cboMusic.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cboMusic.Location = new System.Drawing.Point(51, 48);
+            this.cboMusic.Name = "cboMusic";
+            this.cboMusic.Size = new System.Drawing.Size(90, 21);
+            this.cboMusic.TabIndex = 3;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1351, 657);
+            this.ClientSize = new System.Drawing.Size(1013, 534);
             this.Controls.Add(this.btnMinimize);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tsMenu);
@@ -256,7 +306,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
@@ -266,6 +316,9 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlSideBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pnlFooter.ResumeLayout(false);
             this.pnlFooter.PerformLayout();
             this.tsMenu.ResumeLayout(false);
@@ -292,6 +345,10 @@
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboLoadImage;
+        private System.Windows.Forms.Panel panel1;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cboMusic;
     }
 }
 

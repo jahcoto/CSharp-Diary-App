@@ -8,7 +8,13 @@
     <Setting Name="formOpened" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="filters" Type="System.Collections.Specialized.StringCollection" Scope="User">
+    <Setting Name="txtMemoText" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="dtpStartDate" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="mdiChildWinState" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>
